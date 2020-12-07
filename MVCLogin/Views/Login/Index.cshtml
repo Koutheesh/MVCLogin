@@ -1,0 +1,45 @@
+﻿@model MVCLogin.Models.User
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="login-div">
+    @using (Html.BeginForm("Authorize","Login",FormMethod.Post)) 
+    {
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.UserName)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.UserName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Password)
+            </td>
+            <td>
+                @Html.PasswordFor(model => model.Password)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <label class="field-validation-error">@Html.DisplayFor(model =>model.LoginErrorMessage) </label>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" name=" " value="Login" />
+                
+            </td>
+            <td>
+                <input type="reset" name=" " value="Reset" />
+            </td>
+        </tr>
+
+    </table>
+    }
+</div>
+
